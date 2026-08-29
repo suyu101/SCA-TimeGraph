@@ -177,6 +177,6 @@ If you use TimeGraph, please cite:
 
 ## License
 
-- 🧑‍💻 The **code** in this repository is licensed under the [MIT License](./LICENSE).
-- 📊 The **datasets** in the `data/` directory are released under the [CC BY 4.0 License](./LICENSE-CC-BY-4.0.txt).
+- The **code** in this repository is licensed under the [MIT License](./LICENSE).
+- The **datasets** in the `data/` directory are released under the [CC BY 4.0 License](./LICENSE-CC-BY-4.0.txt).
 
