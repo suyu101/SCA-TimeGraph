@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large TimeGraph datasets
+Datasets/
+
+# Generated outputs
+output/
+outputs/
+results/
+logs/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
