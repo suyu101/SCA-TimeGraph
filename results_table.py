@@ -12,7 +12,18 @@ RESULTS = [
         "Change Detection": 0.8592,
         "Adaptation Delay": 352,
         "Unnecessary Change": 0.2397,
-    }
+    },
+    {
+        "Model": "PCMCI+",
+        "Before F1": 0.8889,
+        "Before SHD": 1,
+        "After F1": None,
+        "After SHD": None,
+        "Stable Preservation": None,
+        "Change Detection": None,
+        "Adaptation Delay": None,
+        "Unnecessary Change": None,
+    },
 ]
 
 
@@ -28,13 +39,10 @@ print(
     )
 )
 
-
 df.to_csv(
     "results/model_comparison.csv",
     index=False,
 )
 
 print()
-print(
-    "Saved: results/model_comparison.csv"
-)
+print("Saved: results/model_comparison.csv")

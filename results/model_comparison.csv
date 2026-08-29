@@ -1,2 +1,3 @@
 Model,Before F1,Before SHD,After F1,After SHD,Stable Preservation,Change Detection,Adaptation Delay,Unnecessary Change
-Rolling Regression,1.0,0,0.75,2,0.7603,0.8592,352,0.2397
+Rolling Regression,1.0,0,0.75,2.0,0.7603,0.8592,352.0,0.2397
+PCMCI+,0.8889,1,,,,,,
