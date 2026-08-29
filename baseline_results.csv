@@ -1,0 +1,4 @@
+model,phase,precision,recall,f1,shd,stable_edge_preservation,change_detection_accuracy,adaptation_delay,unnecessary_change_rate
+RollingRegression,before,1.0,1.0,1.0,0,,,
+RollingRegression,after,0.75,0.75,0.75,2,,,
+RollingRegression,adaptation,,,,,0.7603,0.8592,352,0.2397
