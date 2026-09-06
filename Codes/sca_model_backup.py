@@ -19,24 +19,13 @@ WINDOW_SIZE = 100
 # Two-window change detection
 DETECT_WINDOW = 100
 
-# ============================================================
-# SELECTIVE CAUSAL PLASTICITY PARAMETERS
-# ============================================================
+# Memory parameters
+MEMORY_RATE = 0.02
+PLASTICITY_RATE = 0.50
 
-# Minimum adaptation rate for stable edges
-MIN_PLASTICITY = 0.02
-
-# Maximum adaptation rate for strongly changing edges
-MAX_PLASTICITY = 0.50
-
-# Edge-change scale
-EDGE_CHANGE_SCALE = 0.05
-
-# Persistence of edge-change evidence
-PERSISTENCE_DECAY = 0.90
-
-# Global change sensitivity
-CHANGE_THRESHOLD = 0.08
+# Change detection thresholds
+CHANGE_THRESHOLD = 0.02
+EDGE_CHANGE_THRESHOLD = 0.02
 
 VARIABLES = ["X1", "X2", "X3", "X4"]
 
@@ -327,110 +316,28 @@ def detect_change(previous_graph, current_graph):
 
 
 # ============================================================
-# SELECTIVE CAUSAL PLASTICITY
+# MEMORY UPDATE
 # ============================================================
-
-def calculate_plasticity_rate(
-    diff,
-    change_intensity,
-    persistence
-):
-    """
-    Calculate an edge-specific plasticity rate.
-
-    Plasticity increases when:
-
-        1. The global graph is undergoing a regime change.
-        2. The individual edge has changed substantially.
-        3. The change persists over time.
-
-    Returns:
-        alpha in [MIN_PLASTICITY, MAX_PLASTICITY]
-    """
-
-    # Normalize edge-specific change
-    edge_change = (
-        diff /
-        (diff + EDGE_CHANGE_SCALE)
-    )
-
-    # Bound global change intensity
-    global_change = np.clip(
-        change_intensity,
-        0.0,
-        1.0
-    )
-
-    # Bound persistence
-    persistence = np.clip(
-        persistence,
-        0.0,
-        1.0
-    )
-
-    # --------------------------------------------------------
-    # Selective plasticity signal
-    # --------------------------------------------------------
-
-    plasticity_signal = (
-        global_change
-        * edge_change
-        * persistence
-    )
-
-    # --------------------------------------------------------
-    # Map signal to adaptation rate
-    # --------------------------------------------------------
-
-    alpha = (
-        MIN_PLASTICITY
-        +
-        (
-            MAX_PLASTICITY
-            - MIN_PLASTICITY
-        )
-        * plasticity_signal
-    )
-
-    return float(
-        np.clip(
-            alpha,
-            MIN_PLASTICITY,
-            MAX_PLASTICITY
-        )
-    )
-
 
 def update_memory(
     memory,
     current_graph,
-    change_intensity,
-    persistence
+    change_detected
 ):
     """
-    Selective Causal Plasticity memory update.
-
-    Every causal relationship receives its own
-    adaptive plasticity rate.
+    Selective causal adaptation.
 
     Stable edges:
-        receive low plasticity.
+        slow update
 
-    Strongly changing edges:
-        receive higher plasticity.
-
-    Persistent changes:
-        receive sustained higher plasticity.
-
-    This prevents a global regime change from causing
-    unnecessary modification of stable causal edges.
+    Changed edges:
+        fast update when change is detected
     """
 
     updated = memory.copy()
 
-    plasticity_rates = np.zeros_like(
-        memory,
-        dtype=np.float32
+    difference = np.abs(
+        current_graph - memory
     )
 
     for source in range(N_VARIABLES):
@@ -442,74 +349,35 @@ def update_memory(
 
             for lag in range(MAX_LAG + 1):
 
-                # ------------------------------------------------
-                # Edge-specific deviation
-                # ------------------------------------------------
-
-                diff = abs(
-                    float(
-                        current_graph[
-                            source,
-                            target,
-                            lag
-                        ]
-                    )
-                    -
-                    float(
-                        memory[
-                            source,
-                            target,
-                            lag
-                        ]
-                    )
-                )
-
-                # ------------------------------------------------
-                # Calculate selective plasticity
-                # ------------------------------------------------
-
-                alpha = calculate_plasticity_rate(
-                    diff,
-                    change_intensity,
-                    persistence[
-                        source,
-                        target,
-                        lag
-                    ]
-                )
-
-                plasticity_rates[
+                diff = difference[
                     source,
                     target,
                     lag
-                ] = alpha
+                ]
 
-                # ------------------------------------------------
-                # Adaptive memory update
-                # ------------------------------------------------
+                # Stable edge -> slow memory update
+                rate = MEMORY_RATE
+
+                # Changed edge -> fast plastic update
+                if (
+                    change_detected
+                    and diff >= EDGE_CHANGE_THRESHOLD
+                ):
+                    rate = PLASTICITY_RATE
 
                 updated[
                     source,
                     target,
                     lag
                 ] = (
-                    (
-                        1.0 - alpha
-                    )
-                    * memory[
-                        source,
-                        target,
-                        lag
-                    ]
-                    + alpha
-                    * current_graph[
-                        source,
-                        target,
-                        lag
-                    ]
+                    (1.0 - rate)
+                    * memory[source, target, lag]
+                    +
+                    rate
+                    * current_graph[source, target, lag]
                 )
 
-    return updated, plasticity_rates
+    return updated
 
 
 # ============================================================
@@ -555,33 +423,6 @@ def predict(X):
     detected_flags = np.zeros(
         n,
         dtype=bool
-    )
-
-    # ------------------------------------------------------------
-    # Edge-specific persistence memory
-    # ------------------------------------------------------------
-
-    persistence = np.zeros(
-        (
-            N_VARIABLES,
-            N_VARIABLES,
-            MAX_LAG + 1
-        ),
-        dtype=np.float32
-    )
-
-    # ------------------------------------------------------------
-    # Store plasticity trajectories
-    # ------------------------------------------------------------
-
-    plasticity_history = np.zeros(
-        (
-            n,
-            N_VARIABLES,
-            N_VARIABLES,
-            MAX_LAG + 1
-        ),
-        dtype=np.float32
     )
 
     # --------------------------------------------------------
@@ -671,94 +512,15 @@ def predict(X):
         change_scores[t] = change_score
         detected_flags[t] = detected
 
-        # --------------------------------------------------------
-        # GLOBAL CHANGE INTENSITY
-        # --------------------------------------------------------
+        # ----------------------------------------------------
+        # MEMORY + PLASTICITY
+        # ----------------------------------------------------
 
-        if detected:
-
-            change_intensity = (
-                change_score
-                /
-                max(CHANGE_THRESHOLD, 1e-8)
-            )
-
-            change_intensity = np.clip(
-                change_intensity,
-                0.0,
-                1.0
-            )
-
-        else:
-
-            change_intensity = 0.0
-
-        # --------------------------------------------------------
-        # EDGE-SPECIFIC PERSISTENCE UPDATE
-        # --------------------------------------------------------
-
-        edge_difference = np.abs(
-            current_graph - memory
-        )
-
-        for source in range(N_VARIABLES):
-
-            for target in range(N_VARIABLES):
-
-                if source == target:
-                    continue
-
-                for lag in range(MAX_LAG + 1):
-
-                    diff = edge_difference[
-                        source,
-                        target,
-                        lag
-                    ]
-
-                    # Significant edge deviation
-                    if diff >= EDGE_CHANGE_SCALE:
-
-                        persistence[
-                            source,
-                            target,
-                            lag
-                        ] = (
-                            PERSISTENCE_DECAY
-                            * persistence[
-                                source,
-                                target,
-                                lag
-                            ]
-                            +
-                            (
-                                1.0
-                                -
-                                PERSISTENCE_DECAY
-                            )
-                        )
-
-                    else:
-
-                        # Gradually forget unsupported changes
-                        persistence[
-                            source,
-                            target,
-                            lag
-                        ] *= PERSISTENCE_DECAY
-
-        # --------------------------------------------------------
-        # SELECTIVE CAUSAL PLASTICITY UPDATE
-        # --------------------------------------------------------
-
-        memory, plasticity_rates = update_memory(
+        memory = update_memory(
             memory,
             current_graph,
-            change_intensity,
-            persistence
+            detected
         )
-
-        plasticity_history[t] = plasticity_rates
 
         # ----------------------------------------------------
         # Store prediction
@@ -766,12 +528,7 @@ def predict(X):
 
         A_pred[t] = memory
 
-    return (
-        A_pred,
-        change_scores,
-        detected_flags,
-        plasticity_history
-    )
+    return A_pred, change_scores, detected_flags
 
 
 # ============================================================
@@ -841,12 +598,9 @@ if __name__ == "__main__":
         "Generating SCA causal predictions..."
     )
 
-    (
-        A_pred,
-        change_scores,
-        detected_flags,
-        plasticity_history
-    ) = predict(X)
+    A_pred, change_scores, detected_flags = predict(
+        X
+    )
 
     # --------------------------------------------------------
     # Interface check
@@ -948,20 +702,6 @@ if __name__ == "__main__":
         "results/sca_A_pred.npy"
     )
 
-    output_path = (
-    "results/sca_A_pred.npy"
-    )
-
-    np.save(
-        output_path,
-        A_pred
-    )
-
-    np.save(
-        "results/sca_full_A_pred.npy",
-        A_pred
-    )
-
     np.save(
         "results/sca_change_scores.npy",
         change_scores
@@ -971,25 +711,6 @@ if __name__ == "__main__":
         "results/sca_detected_flags.npy",
         detected_flags
     )
-
-
-    np.save(
-        "results/sca_plasticity_rates.npy",
-        plasticity_history
-    )
-
-    np.save(
-        "results/sca_full_plasticity_rates.npy",
-        plasticity_history
-    )
-
-    print("Mean A_pred:", A_pred.mean())
-    print("Mean plasticity:", plasticity_history.mean())
-    print("Max plasticity:", plasticity_history.max())
-    active = np.sum(
-        plasticity_history > MIN_PLASTICITY + 1e-6
-    )
-    print("Active plasticity entries:", active)
 
 
     print()
