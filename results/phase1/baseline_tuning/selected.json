@@ -1,0 +1,326 @@
+[
+  {
+    "method":"Global-rate EMA",
+    "n_variables":4,
+    "max_lag":1,
+    "parameters":"{\"rate\": 0.25, \"regression_window\": 200, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.8501653131,
+    "f1_mean":0.644566487,
+    "shd_mean":2.0283018868
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":4,
+    "max_lag":2,
+    "parameters":"{\"rate\": 0.25, \"regression_window\": 200, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.7245754546,
+    "f1_mean":0.6003337229,
+    "shd_mean":2.4386792453
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":4,
+    "max_lag":4,
+    "parameters":"{\"rate\": 0.05, \"regression_window\": 200, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.7142456773,
+    "f1_mean":0.6019154664,
+    "shd_mean":2.4132075472
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":10,
+    "max_lag":1,
+    "parameters":"{\"rate\": 0.25, \"regression_window\": 200, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.6721083933,
+    "f1_mean":0.6010595418,
+    "shd_mean":6.6509433962
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":10,
+    "max_lag":2,
+    "parameters":"{\"rate\": 0.05, \"regression_window\": 200, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.6520499913,
+    "f1_mean":0.6318610928,
+    "shd_mean":6.3745283019
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":10,
+    "max_lag":4,
+    "parameters":"{\"rate\": 0.05, \"regression_window\": 200, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.6957508087,
+    "f1_mean":0.6098952206,
+    "shd_mean":6.0754716981
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":20,
+    "max_lag":1,
+    "parameters":"{\"rate\": 0.05, \"regression_window\": 200, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.6395913748,
+    "f1_mean":0.6598746439,
+    "shd_mean":12.6952830189
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":20,
+    "max_lag":2,
+    "parameters":"{\"rate\": 0.05, \"regression_window\": 200, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.7012327853,
+    "f1_mean":0.6431565478,
+    "shd_mean":11.9566037736
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":20,
+    "max_lag":4,
+    "parameters":"{\"rate\": 0.05, \"regression_window\": 400, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.7232962026,
+    "f1_mean":0.6424853034,
+    "shd_mean":11.5801886792
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":50,
+    "max_lag":1,
+    "parameters":"{\"rate\": 0.05, \"regression_window\": 250, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.7120873058,
+    "f1_mean":0.6516009389,
+    "shd_mean":29.4066037736
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":50,
+    "max_lag":2,
+    "parameters":"{\"rate\": 0.05, \"regression_window\": 500, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.7100236029,
+    "f1_mean":0.6503013053,
+    "shd_mean":29.5745283019
+  },
+  {
+    "method":"Global-rate EMA",
+    "n_variables":50,
+    "max_lag":4,
+    "parameters":"{\"rate\": 0.05, \"regression_window\": 1000, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.5744197121,
+    "f1_mean":0.6277651943,
+    "shd_mean":37.8377358491
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":4,
+    "max_lag":1,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 200}",
+    "auprc_mean":0.821960038,
+    "f1_mean":0.6318426176,
+    "shd_mean":2.1424528302
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":4,
+    "max_lag":2,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 200}",
+    "auprc_mean":0.6796969428,
+    "f1_mean":0.5809688529,
+    "shd_mean":2.6896226415
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":4,
+    "max_lag":4,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 200}",
+    "auprc_mean":0.5337610895,
+    "f1_mean":0.5106148676,
+    "shd_mean":3.8320754717
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":10,
+    "max_lag":1,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 200}",
+    "auprc_mean":0.6195965147,
+    "f1_mean":0.566648573,
+    "shd_mean":7.7509433962
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":10,
+    "max_lag":2,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 200}",
+    "auprc_mean":0.4515610147,
+    "f1_mean":0.4513434713,
+    "shd_mean":12.5273584906
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":10,
+    "max_lag":4,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 200}",
+    "auprc_mean":0.2576704124,
+    "f1_mean":0.2847390046,
+    "shd_mean":26.6320754717
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":20,
+    "max_lag":1,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 200}",
+    "auprc_mean":0.4570210456,
+    "f1_mean":0.457573755,
+    "shd_mean":25.1433962264
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":20,
+    "max_lag":2,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 200}",
+    "auprc_mean":0.2667837508,
+    "f1_mean":0.2879907955,
+    "shd_mean":53.741509434
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":20,
+    "max_lag":4,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 400}",
+    "auprc_mean":0.1990390543,
+    "f1_mean":0.4906970407,
+    "shd_mean":37.7716981132
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":50,
+    "max_lag":1,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 250}",
+    "auprc_mean":0.2682197841,
+    "f1_mean":0.338551825,
+    "shd_mean":112.1113207547
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":50,
+    "max_lag":2,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 500}",
+    "auprc_mean":0.1785378745,
+    "f1_mean":0.5713336772,
+    "shd_mean":99.8471698113
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":50,
+    "max_lag":4,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 1000}",
+    "auprc_mean":0.1260188038,
+    "f1_mean":0.6352889351,
+    "shd_mean":154.2226415094
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":4,
+    "max_lag":1,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.8167526525,
+    "f1_mean":0.6313307604,
+    "shd_mean":2.1547169811
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":4,
+    "max_lag":2,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.6728743306,
+    "f1_mean":0.5760271071,
+    "shd_mean":2.7198113208
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":4,
+    "max_lag":4,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.5398284098,
+    "f1_mean":0.5261597587,
+    "shd_mean":3.6339622642
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":10,
+    "max_lag":1,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.6205808826,
+    "f1_mean":0.5689320571,
+    "shd_mean":7.6679245283
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":10,
+    "max_lag":2,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.4665303795,
+    "f1_mean":0.4720244714,
+    "shd_mean":11.6339622642
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":10,
+    "max_lag":4,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.2921379125,
+    "f1_mean":0.3430787381,
+    "shd_mean":20.6801886792
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":20,
+    "max_lag":1,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.4681214926,
+    "f1_mean":0.4760124574,
+    "shd_mean":23.479245283
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":20,
+    "max_lag":2,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.2968056888,
+    "f1_mean":0.3454121053,
+    "shd_mean":42.2377358491
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":20,
+    "max_lag":4,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.1121738623,
+    "f1_mean":0.2032096761,
+    "shd_mean":94.7452830189
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":50,
+    "max_lag":1,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.2385353557,
+    "f1_mean":0.2962314188,
+    "shd_mean":133.4726415094
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":50,
+    "max_lag":2,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.0768485499,
+    "f1_mean":0.1597626109,
+    "shd_mean":322.6632075472
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":50,
+    "max_lag":4,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.0347974653,
+    "f1_mean":0.0695717686,
+    "shd_mean":759.8877358491
+  }
+]

@@ -1,0 +1,6 @@
+method,n_variables,max_lag,noise_scale,distribution,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,shd_mean,shd_std,adaptation_delay_mean,adaptation_delay_std,stable_edge_recall_mean,stable_edge_recall_std,per_edge_delay_mean,per_edge_delay_std,per_edge_delay_censor_rate_mean,per_edge_delay_censor_rate_std,auroc_mean,auroc_std,auprc_mean,auprc_std,change_detection_rate_mean,change_detection_rate_std,false_alarm_rate_mean,false_alarm_rate_std
+Global-rate EMA,50,4,0.1,gaussian,0.018154289731396864,,0.11,,0.020560642854485778,,327.96,,,,,,,,,,0.605337037948718,,0.010393145299090472,,,,,
+KGLS ridge-to-previous,50,4,0.1,gaussian,0.014287862151447164,,0.1924,,0.01721067319672305,,1016.74,,,,,,,,,,0.5825764217435897,,0.008169918057474634,,,,,
+RLS forgetting,50,4,0.1,gaussian,0.016177844746280687,,0.19119999999999998,,0.019089294622205523,,1006.28,,,,,,,,,,0.5839567638974359,,0.007931237910167196,,,,,
+"Rolling OLS (W=250, U=10)",50,4,0.1,gaussian,0.011217813549605566,,0.19080000000000005,,0.016654771318009992,,1050.4,,,,,,,,,,0.581806116102564,,0.007752179659405078,,,,,
+SCA dimension-aware ridge,50,4,0.1,gaussian,0.0,,0.0,,0.0,,50.0,,,,,,,,,,0.6373160968205128,,0.014439314716712769,,,,0.0,

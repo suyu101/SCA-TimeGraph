@@ -1,0 +1,5 @@
+method,seed,n_variables,max_lag,noise_scale,distribution,n_points,synthetic_protocol,edge_threshold,precision,recall,f1,shd,adaptation_delay,stable_edge_preservation,change_detection_rate,false_alarm_rate
+SCA,0,4,1,0.1,gaussian,1000,v2_recurring_graphs_measurement_snr,0.15,0.7098484848484848,0.56,0.5578571428571428,3.78,,,,0.08
+Rolling OLS,0,4,1,0.1,gaussian,1000,v2_recurring_graphs_measurement_snr,0.15,0.9216904761904762,0.555,0.6489004329004328,2.2,,,,
+SCA,0,4,2,0.1,gaussian,1000,v2_recurring_graphs_measurement_snr,0.15,0.5591905034324943,0.735,0.5649730430599996,6.5,,,,0.08
+Rolling OLS,0,4,2,0.1,gaussian,1000,v2_recurring_graphs_measurement_snr,0.15,0.7991385281385281,0.605,0.6506811521811521,2.9,,,,

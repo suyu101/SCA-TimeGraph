@@ -1,0 +1,11 @@
+method,n_variables,max_lag,parameters,auprc_mean,f1_mean,shd_mean
+Global-rate EMA,50,4,"{""rate"": 0.25, ""regression_window"": 1000, ""ridge_alpha"": 1.0}",0.010629972753614362,0.022006949241502306,317.16
+Global-rate EMA,50,4,"{""rate"": 0.25, ""regression_window"": 500, ""ridge_alpha"": 1.0}",0.010629972753614362,0.022006949241502306,317.16
+Global-rate EMA,50,4,"{""rate"": 0.05, ""regression_window"": 1000, ""ridge_alpha"": 1.0}",0.009427887948987423,0.001176470588235294,51.02
+Global-rate EMA,50,4,"{""rate"": 0.05, ""regression_window"": 500, ""ridge_alpha"": 1.0}",0.009427887948987423,0.001176470588235294,51.02
+KGLS ridge-to-previous,50,4,"{""prior_strength"": 1.0, ""regression_window"": 1000}",0.00824242976767518,0.02116477141555549,996.92
+KGLS ridge-to-previous,50,4,"{""prior_strength"": 1.0, ""regression_window"": 500}",0.00824242976767518,0.02116477141555549,996.92
+KGLS ridge-to-previous,50,4,"{""prior_strength"": 0.1, ""regression_window"": 1000}",0.007244501563911979,0.020273487237691745,1099.22
+KGLS ridge-to-previous,50,4,"{""prior_strength"": 0.1, ""regression_window"": 500}",0.007244501563911979,0.020273487237691745,1099.22
+RLS forgetting,50,4,"{""forgetting_factor"": 0.99, ""initial_covariance"": 100.0}",0.007585381830539453,0.025930101218047254,991.26
+RLS forgetting,50,4,"{""forgetting_factor"": 0.97, ""initial_covariance"": 100.0}",0.007354310808854345,0.02563698681147718,1032.58

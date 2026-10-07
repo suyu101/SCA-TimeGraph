@@ -1,0 +1,2 @@
+tp,fp,fn,precision,recall,f1,shd,runtime_seconds,regression_window,detection_window,threshold,persistence_decay,deviation_scale,min_plasticity,max_plasticity,update_interval
+23,115,19,0.16666666666666666,0.5476190476190477,0.2555555555555556,134,5.9105721000014455,500,500,0.05,0.9,0.05,0.02,0.5,100

@@ -1,0 +1,21 @@
+{
+  "created_at_utc": "2026-09-16T10:27:38.004582+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "python_implementation": "CPython",
+  "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "packages": {
+    "numpy": "2.5.0",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "tigramite": "5.2.10.1",
+    "causalchamber": "0.2.8",
+    "joblib": "1.6.0"
+  },
+  "commands": [
+    "python scripts/run_validation.py --study all --seeds 20",
+    "python scripts/evaluate_causal_chambers.py",
+    "python scripts/tune_causal_chambers.py"
+  ]
+}

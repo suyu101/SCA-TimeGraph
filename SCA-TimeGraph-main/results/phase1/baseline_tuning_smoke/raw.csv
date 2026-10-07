@@ -1,0 +1,7 @@
+method,seed,n_variables,max_lag,parameters,n_points,precision,recall,f1,shd,auroc,auprc
+KGLS ridge-to-previous,0,4,1,"{""prior_strength"": 0.1, ""regression_window"": 200}",200,0.6346666666666666,0.395,0.4213333333333333,4.14,0.6238625,0.42109929325228035
+KGLS ridge-to-previous,0,4,1,"{""prior_strength"": 1.0, ""regression_window"": 200}",200,0.6446666666666667,0.395,0.4241904761904761,4.08,0.6318875,0.42820515989883917
+RLS forgetting,0,4,1,"{""forgetting_factor"": 0.97, ""initial_covariance"": 100.0}",200,0.3208412698412698,0.355,0.3190392940392941,5.44,0.5131,0.35746551070283183
+RLS forgetting,0,4,1,"{""forgetting_factor"": 0.99, ""initial_covariance"": 100.0}",200,0.3688888888888889,0.345,0.33510134310134304,4.86,0.581825,0.4027300730800175
+Global-rate EMA,0,4,1,"{""rate"": 0.05, ""regression_window"": 200, ""ridge_alpha"": 1.0}",200,0.30749999999999994,0.705,0.4278021978021978,7.02,0.3463375,0.24879072404344263
+Global-rate EMA,0,4,1,"{""rate"": 0.25, ""regression_window"": 200, ""ridge_alpha"": 1.0}",200,0.6067619047619048,0.37,0.3737884337884337,4.52,0.58165,0.3691187431347433

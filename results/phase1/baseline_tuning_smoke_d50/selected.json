@@ -1,0 +1,29 @@
+[
+  {
+    "method":"Global-rate EMA",
+    "n_variables":50,
+    "max_lag":4,
+    "parameters":"{\"rate\": 0.25, \"regression_window\": 1000, \"ridge_alpha\": 1.0}",
+    "auprc_mean":0.0106299728,
+    "f1_mean":0.0220069492,
+    "shd_mean":317.16
+  },
+  {
+    "method":"KGLS ridge-to-previous",
+    "n_variables":50,
+    "max_lag":4,
+    "parameters":"{\"prior_strength\": 1.0, \"regression_window\": 1000}",
+    "auprc_mean":0.0082424298,
+    "f1_mean":0.0211647714,
+    "shd_mean":996.92
+  },
+  {
+    "method":"RLS forgetting",
+    "n_variables":50,
+    "max_lag":4,
+    "parameters":"{\"forgetting_factor\": 0.99, \"initial_covariance\": 100.0}",
+    "auprc_mean":0.0075853818,
+    "f1_mean":0.0259301012,
+    "shd_mean":991.26
+  }
+]

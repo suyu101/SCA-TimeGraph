@@ -1,0 +1,5 @@
+method,n_variables,max_lag,noise_scale,distribution,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,shd_mean,shd_std,adaptation_delay_mean,adaptation_delay_std,stable_edge_preservation_mean,stable_edge_preservation_std,change_detection_rate_mean,change_detection_rate_std,false_alarm_rate_mean,false_alarm_rate_std
+Rolling OLS,4,1,0.1,gaussian,0.9216904761904762,,0.555,,0.6489004329004328,,2.2,,,,,,,,,
+Rolling OLS,4,2,0.1,gaussian,0.7991385281385281,,0.605,,0.6506811521811521,,2.9,,,,,,,,,
+SCA,4,1,0.1,gaussian,0.7098484848484848,,0.56,,0.5578571428571428,,3.78,,,,,,,,0.08,
+SCA,4,2,0.1,gaussian,0.5591905034324943,,0.735,,0.5649730430599996,,6.5,,,,,,,,0.08,

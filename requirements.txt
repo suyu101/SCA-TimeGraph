@@ -1,0 +1,13 @@
+# Core numerical and scientific libraries
+numpy>=1.26.0
+pandas>=2.0.0
+scipy>=1.11.0
+matplotlib>=3.8.0
+
+# Causal discovery for time series
+tigramite>=5.2.0
+
+# Required for the native Tigramite RPCMCI regime-aware baseline
+scikit-learn>=1.2.0
+joblib>=1.2.0
+ortools>=9.2
