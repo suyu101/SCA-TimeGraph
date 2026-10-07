@@ -1,5 +1,0 @@
-method,seed,n_variables,max_lag,noise_scale,distribution,n_points,precision,recall,f1,shd,change_detection_rate
-SCA,0,4,1,0.1,gaussian,80,0.3333333333333333,1.0,0.5,8.0,
-Rolling OLS,0,4,1,0.1,gaussian,80,0.3333333333333333,1.0,0.5,8.0,
-SCA,0,4,2,0.1,gaussian,80,0.1666666666666666,1.0,0.2857142857142857,20.0,
-Rolling OLS,0,4,2,0.1,gaussian,80,0.1666666666666666,1.0,0.2857142857142857,20.0,

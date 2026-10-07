@@ -1,7 +1,0 @@
-method,n_variables,max_lag,parameters,auprc_mean,f1_mean,shd_mean
-Global-rate EMA,4,1,"{""rate"": 0.25, ""regression_window"": 200, ""ridge_alpha"": 1.0}",0.3691187431347433,0.3737884337884337,4.52
-Global-rate EMA,4,1,"{""rate"": 0.05, ""regression_window"": 200, ""ridge_alpha"": 1.0}",0.24879072404344263,0.4278021978021978,7.02
-KGLS ridge-to-previous,4,1,"{""prior_strength"": 1.0, ""regression_window"": 200}",0.42820515989883917,0.4241904761904761,4.08
-KGLS ridge-to-previous,4,1,"{""prior_strength"": 0.1, ""regression_window"": 200}",0.42109929325228035,0.4213333333333333,4.14
-RLS forgetting,4,1,"{""forgetting_factor"": 0.99, ""initial_covariance"": 100.0}",0.4027300730800175,0.33510134310134304,4.86
-RLS forgetting,4,1,"{""forgetting_factor"": 0.97, ""initial_covariance"": 100.0}",0.35746551070283183,0.3190392940392941,5.44
