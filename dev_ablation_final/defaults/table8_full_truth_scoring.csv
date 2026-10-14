@@ -1,0 +1,4 @@
+method,f1_pre_full_truth,f1_post_full_truth,recall_pre_full_truth,recall_post_full_truth
+Full SCA,0.6666666666666666,0.8571428571428571,0.5,0.75
+No Persistence,0.5714285714285715,0.8571428571428571,0.5,0.75
+Global Only,0.5,0.8571428571428571,0.5,0.75
