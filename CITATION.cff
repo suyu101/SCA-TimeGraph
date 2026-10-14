@@ -1,27 +1,66 @@
 cff-version: 1.2.0
-message: "If you use TimeGraph in your research, please cite the following."
-title: "TimeGraph: Synthetic Benchmark Datasets for Robust Time-Series Causal Discovery"
+message: "If you use SCA-TimeGraph, please cite this software. SCA-TimeGraph builds on the TimeGraph benchmark; if you use the TimeGraph generators or datasets, please also cite the TimeGraph reference listed below."
+title: "SCA-TimeGraph: Selective Causal Adaptation for Evolving Time-Series Predictive Graphs"
+type: software
+# Author names follow the byline of the accompanying manuscript. Given/family splits and any ORCIDs
+# should be confirmed by the authors; none has been invented here.
 authors:
-  - family-names: Ferdous
-    given-names: Muhammad Hasan
-    affiliation: University of Maryland, Baltimore County
-    orcid: https://orcid.org/0000-0002-7182-1274
-  - family-names: Hossain
-    given-names: Emam
-    affiliation: University of Maryland, Baltimore County
-  - family-names: Gani
-    given-names: Md Osman
-    affiliation: University of Maryland, Baltimore County
-date-released: 2025-06-02
-version: "1.0"
-doi: 10.48550/arXiv.2506.01361
-url: https://github.com/hferdous/TimeGraph
-repository-code: https://github.com/hferdous/TimeGraph
-license: MIT AND CC-BY-4.0
-type: dataset
+  - family-names: S
+    given-names: Suhasini
+    affiliation: "School of Electronics Engineering, Vellore Institute of Technology, Chennai, India"
+    email: suhasini.s@vit.ac.in
+  - family-names: Saha
+    given-names: Suyesha
+    affiliation: "School of Computer Science and Engineering, Vellore Institute of Technology, Chennai, India"
+  - family-names: Sahasra
+    given-names: Ippili Sai
+    affiliation: "School of Computer Science and Engineering, Vellore Institute of Technology, Chennai, India"
+  - family-names: Arumbakkam
+    given-names: Ananya
+    affiliation: "School of Computer Science and Engineering, Vellore Institute of Technology, Chennai, India"
+repository-code: https://github.com/suyu101/SCA-TimeGraph
+url: https://github.com/suyu101/SCA-TimeGraph
+version: "0.1.0"
+license:
+  - MIT
+  - CC-BY-4.0
+abstract: >-
+  Training-free, past-only (Granger-style) streaming estimator of evolving lagged predictive graphs with
+  edgewise, persistence-gated plasticity, together with the experiment code and result files of the
+  accompanying manuscript. The repository is derived from the TimeGraph synthetic benchmark
+  (Ferdous, Hossain and Gani), whose MIT-licensed code (copyright 2025 Muhammad Hasan Ferdous; see LICENSE)
+  and CC-BY-4.0 datasets (see LICENSE-CC-BY-4.0.txt) are retained under their original licences.
 keywords:
-  - synthetic time series
+  - time series
+  - Granger-style predictive graphs
+  - streaming estimation
+  - non-stationary data
   - causal discovery
-  - benchmarks
-  - nonstationary data
-  - missing data
+references:
+  - type: data
+    title: "TimeGraph: Synthetic Benchmark Datasets for Robust Time-Series Causal Discovery"
+    authors:
+      - family-names: Ferdous
+        given-names: Muhammad Hasan
+        affiliation: University of Maryland, Baltimore County
+        orcid: https://orcid.org/0000-0002-7182-1274
+      - family-names: Hossain
+        given-names: Emam
+        affiliation: University of Maryland, Baltimore County
+      - family-names: Gani
+        given-names: Md Osman
+        affiliation: University of Maryland, Baltimore County
+    date-released: 2025-06-02
+    version: "1.0"
+    doi: 10.48550/arXiv.2506.01361
+    url: https://github.com/hferdous/TimeGraph
+    repository-code: https://github.com/hferdous/TimeGraph
+    license:
+      - MIT
+      - CC-BY-4.0
+    keywords:
+      - synthetic time series
+      - causal discovery
+      - benchmarks
+      - nonstationary data
+      - missing data
