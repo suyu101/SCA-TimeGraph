@@ -1,6 +1,6 @@
 {
   "script": "scripts/regenerate_dev_ablation.py",
-  "profile": "calibrated_d4_l2",
+  "profile": "defaults",
   "base_repository_snapshot": "github.com/suyu101/SCA-TimeGraph @ be3e159e61b9935fcd683cc2020c021fa60b4cc5 (plus local uncommitted changes)",
   "data": {
     "generator": "scripts/generate_regime_change.py::generate_regime_change_data()",
@@ -11,15 +11,15 @@
     "X_float32_sha256": "e48e9bc67afc01343c903b6e4f08a0adf83251cfb3bc4cff83310efb7fa1e746"
   },
   "config": {
-    "regression_window": 200,
+    "regression_window": 100,
     "detection_window": 100,
-    "threshold": 0.3314546049,
+    "threshold": 0.08,
     "persistence_decay": 0.9,
     "deviation_scale": 0.05,
     "min_plasticity": 0.02,
     "max_plasticity": 0.5,
     "update_interval": 10,
-    "ridge_alpha": 1.0
+    "ridge_alpha": 0.0
   },
   "max_lag": 2,
   "edge_threshold": 0.15,
@@ -33,15 +33,15 @@
   ],
   "detector": {
     "eligible_updates_total": 480,
-    "flagged_share_before_change": 0.1565217391304348,
-    "flagged_share_after_change": 0.084,
-    "flagged_share_first_500_after_change": 0.12,
+    "flagged_share_before_change": 1.0,
+    "flagged_share_after_change": 1.0,
+    "flagged_share_first_500_after_change": 1.0,
     "n_before": 230,
     "n_after": 250,
-    "first_flag_at_or_after_change": 2590,
-    "score_mean_before": 0.2890421450138092,
-    "score_mean_after": 0.2745497524738312,
-    "threshold": 0.3314546049
+    "first_flag_at_or_after_change": 2500,
+    "score_mean_before": 0.29368120431900024,
+    "score_mean_after": 0.2789331376552582,
+    "threshold": 0.08
   },
   "lag0_coefficients_all_zero": true,
   "environment": {
